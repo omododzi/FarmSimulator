@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7011854100685763050}
   - component: {fileID: 5953371526523361962}
   - component: {fileID: 3452927992729290277}
+  - component: {fileID: -7345026824545224142}
   m_Layer: 0
   m_Name: Mushroom_03
   m_TagString: Mushroom
@@ -108,3 +109,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.46791387, y: 0.41106313, z: 0.4261269}
   m_Center: {x: 0.04398039, y: 0.19695413, z: -0.00615149}
+--- !u!114 &-7345026824545224142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7885829027679885186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b705af95588329d489e4cd3f8c95425e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedprefab: {fileID: 0}
+  maxDrop: 4
+  minDrop: 1
+  HP: 1
+  respawnTime: 10

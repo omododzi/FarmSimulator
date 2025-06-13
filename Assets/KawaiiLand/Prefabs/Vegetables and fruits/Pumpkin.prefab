@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedprefab: {fileID: 0}
-  maxDrop: 0
-  minDrop: 0
-  HP: 1
-  respawnTime: 0
+  maxDrop: 2
+  minDrop: 1
+  HP: 20
+  respawnTime: 30
