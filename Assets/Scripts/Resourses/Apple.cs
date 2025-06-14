@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using UnityEngine;
 
 public class Apple : MonoBehaviour
@@ -8,11 +8,13 @@ public class Apple : MonoBehaviour
     public int maxDrop;
     public int minDrop;
     public float HP = 1;
+    private float basehp;
     public float respawnTime;
     private CaracterTrigger player;
 
     void Start()
     {
+        basehp = HP;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CaracterTrigger>();
     }
     private void Update()
@@ -34,6 +36,7 @@ public class Apple : MonoBehaviour
         
         GiveResourse();
         yield return new WaitForSeconds(respawnTime);
+        HP = basehp;
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         if (destroyedprefab != null)
         {

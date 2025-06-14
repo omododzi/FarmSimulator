@@ -8,12 +8,14 @@ public class Trees : MonoBehaviour
     public int maxDrop;
     public int minDrop;
     public float HP = 1;
+    private float basehp;
     public float respawnTime;
     private CaracterTrigger player;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CaracterTrigger>();
+        basehp = HP;
     }
     private void Update()
     {
@@ -34,6 +36,7 @@ public class Trees : MonoBehaviour
         
         GiveResourse();
         yield return new WaitForSeconds(respawnTime);
+        HP = basehp;
         gameObject.transform.GetComponentInChildren<MeshRenderer>().enabled  = true;
         if (destroyedprefab != null)
         {

@@ -10,9 +10,11 @@ public class Mushrooms : MonoBehaviour
     public float HP = 1;
     public float respawnTime;
     private CaracterTrigger player;
+    private float basehp;
 
     void Start()
     {
+        basehp = HP;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CaracterTrigger>();
     }
     private void Update()
@@ -34,6 +36,7 @@ public class Mushrooms : MonoBehaviour
         
         GiveResourse();
         yield return new WaitForSeconds(respawnTime);
+        HP = basehp;
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         if (destroyedprefab != null)
         {

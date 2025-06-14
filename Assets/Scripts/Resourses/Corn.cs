@@ -7,11 +7,13 @@ public class Corn : MonoBehaviour
     public int maxDrop;
     public int minDrop;
     public float HP = 1;
+    private float basehp;
     public float respawnTime;
     private CaracterTrigger player;
 
     void Start()
     {
+        basehp = HP;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CaracterTrigger>();
     }
     private void Update()
@@ -33,6 +35,7 @@ public class Corn : MonoBehaviour
         
         GiveResourse();
         yield return new WaitForSeconds(respawnTime);
+        HP = basehp;
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         if (destroyedprefab != null)
         {

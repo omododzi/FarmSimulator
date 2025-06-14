@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CaracterTrigger : MonoBehaviour
@@ -33,6 +34,14 @@ public class CaracterTrigger : MonoBehaviour
    private Mango mango;
    private Pumpkin pumpkin;
    private Carrots carrots;
+   private CharacterMovement characterMovement;
+   
+   public Animator animator;
+
+   void Start()
+   {
+      characterMovement = GetComponent<CharacterMovement>();
+   }
    private void OnTriggerEnter(Collider other)
    {
       if (other.gameObject.CompareTag("Island"))
@@ -47,7 +56,7 @@ public class CaracterTrigger : MonoBehaviour
           other.gameObject.CompareTag("Apple")||other.gameObject.CompareTag("Mango")||
           other.gameObject.CompareTag("Corn")||other.gameObject.CompareTag("Rock")||
           other.gameObject.CompareTag("Watermelon")||other.gameObject.CompareTag("Pumpkin")||
-          other.gameObject.CompareTag("Carrots"))
+          other.gameObject.CompareTag("Carrot"))
       {
          string tag = other.gameObject.tag;
          switch (tag)
@@ -84,7 +93,7 @@ public class CaracterTrigger : MonoBehaviour
                puntshPumpkins = true;
                pumpkin = other.gameObject.GetComponent<Pumpkin>();
                break;
-            case "Carrots":
+            case "Carrot":
             {
                puntshCarrots = true;
                carrots = other.gameObject.GetComponent<Carrots>();
@@ -96,17 +105,25 @@ public class CaracterTrigger : MonoBehaviour
 
    private void FixedUpdate()
    {
-      if (Input.GetKeyDown(KeyCode.E))
+      if (Input.GetKeyDown(KeyCode.E)&& characterMovement.canMove)
       {
-         if(puntshTree){trees.HP -= damage;}
-         if(puntshMushroom){mushrooms.HP -= damage;}
-         if(puntshApples){apple.HP -= damage;}
-         if(puntshMangos){mango.HP -= damage;}
-         if(puntshCorns){corn.HP -= damage;}
-         if(puntshRocs){rocks.HP -= damage;}
-         if(puntshWatermelon){watrmelon.HP -= damage;}
-         if(puntshPumpkins){pumpkin.HP -= damage;}
-         if(puntshCarrots){carrots.HP -= damage;}
+         if(puntshTree){trees.HP -= damage; animator.SetTrigger("Tree"); StartCoroutine(InAnimation());
+         }
+         if(puntshMushroom){mushrooms.HP -= damage; animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshApples){apple.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshMangos){mango.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshCorns){corn.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshRocs){rocks.HP -= damage; animator.SetTrigger("Rock");StartCoroutine(InAnimation());}
+         if(puntshWatermelon){watrmelon.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshPumpkins){pumpkin.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshCarrots){carrots.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
       }
+   }
+
+   IEnumerator InAnimation()
+   {
+      characterMovement.canMove = false;
+      yield return new WaitForSeconds(2f);
+      characterMovement.canMove = true;
    }
 }
