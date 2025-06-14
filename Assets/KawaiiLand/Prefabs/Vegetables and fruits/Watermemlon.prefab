@@ -124,5 +124,5 @@ MonoBehaviour:
   destroyedprefab: {fileID: 0}
   maxDrop: 2
   minDrop: 1
-  HP: 30
+  HP: 1
   respawnTime: 0

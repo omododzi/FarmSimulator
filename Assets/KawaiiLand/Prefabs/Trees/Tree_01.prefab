@@ -69,11 +69,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedprefab: {fileID: 0}
-  summInCoins: 0
-  maxDrop: 0
-  minDrop: 0
-  HP: 0
-  respawnTime: 0
+  maxDrop: 4
+  minDrop: 1
+  HP: 5
+  respawnTime: 30
 --- !u!1 &7642895574590208858
 GameObject:
   m_ObjectHideFlags: 0
