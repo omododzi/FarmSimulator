@@ -41,8 +41,13 @@ public class CharacterMovement : MonoBehaviour
         if (canMove)
         {
             HandleMovement();
+            controller.Move(velocity * Time.deltaTime);
         }
-        controller.Move(velocity * Time.deltaTime);
+        else
+        {
+            controller.Move(Vector3.zero);
+        }
+        
         ApplyGravity();
         UpdateAnimations();
         

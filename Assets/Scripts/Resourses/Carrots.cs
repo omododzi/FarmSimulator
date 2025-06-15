@@ -28,16 +28,35 @@ public class Carrots : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.transform.GetComponentInChildren<MeshRenderer>().enabled = false;
+        BoxCollider boxCollider = gameObject.GetComponent<BoxCollider>();
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
+        }
         if (destroyedprefab != null)
         {
             destroyedprefab.SetActive(true);
         }
-        
+        else
+        {
+            SphereCollider sphereCollider = gameObject.GetComponent<SphereCollider>();
+            sphereCollider.enabled = false;
+        }
         GiveResourse();
+        
         yield return new WaitForSeconds(respawnTime);
+        
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = true;
+        } else
+        {
+            SphereCollider sphereCollider = gameObject.GetComponent<SphereCollider>();
+            sphereCollider.enabled = true;
+        }
         HP = basehp;
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.transform.GetComponentInChildren<MeshRenderer>().enabled  = true;
         if (destroyedprefab != null)
         {
             destroyedprefab.SetActive(false);

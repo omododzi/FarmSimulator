@@ -130,7 +130,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1442393, y: 1.8998622, z: 1.1442393}
+  m_Size: {x: 1.8, y: 1.8, z: 1.8}
   m_Center: {x: 0, y: 0.8996745, z: 0}
 --- !u!114 &-3987611068576773631
 MonoBehaviour:
@@ -145,8 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedprefab: {fileID: 0}
-  summInCoins: 0
-  maxDrop: 0
-  minDrop: 0
-  HP: 0
-  respawnTime: 0
+  maxDrop: 4
+  minDrop: 1
+  HP: 5
+  respawnTime: 30

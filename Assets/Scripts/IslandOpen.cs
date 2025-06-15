@@ -14,6 +14,8 @@ public class IslandOpen : MonoBehaviour
    public int cornsWont;
    
    public bool isopen = false;
+   
+   public BoxCollider[] boxColliders;
 
    void Start()
    {
@@ -23,12 +25,23 @@ public class IslandOpen : MonoBehaviour
          {
             transform.GetChild(i).gameObject.SetActive(false);
          }
+
+         for (int i = 0; i < boxColliders.Length; i++)
+         {
+            boxColliders[i].enabled = true;
+         }
+      }
+      else
+      {
+         for (int i = 0; i < boxColliders.Length; i++)
+         {
+            boxColliders[i].enabled = false;
+         }
       }
    }
 
    public void CheckResourses(int trees,int rocs,int mushrooms,int carrots,int watermalonn,int apples,int pumpkins,int mango,int corns)
    {
-      Debug.Log("sdada");
       if (trees >= treesWont &&
           rocs >= rocksWont &&
           mushrooms >= mushroomsWont &&
@@ -44,8 +57,10 @@ public class IslandOpen : MonoBehaviour
          {
             transform.GetChild(i).gameObject.SetActive(true);
          }
+         for (int i = 0; i < boxColliders.Length; i++)
+         {
+            boxColliders[i].enabled = false;
+         }
       }
-      gameObject.GetComponent<BoxCollider>().enabled = false;
-      
    }
 }

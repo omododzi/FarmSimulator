@@ -107,23 +107,75 @@ public class CaracterTrigger : MonoBehaviour
    {
       if (Input.GetKeyDown(KeyCode.E)&& characterMovement.canMove)
       {
-         if(puntshTree){trees.HP -= damage; animator.SetTrigger("Tree"); StartCoroutine(InAnimation());
+         if(puntshTree){animator.SetTrigger("Tree"); StartCoroutine(InAnimation(trees,"Tree"));
          }
-         if(puntshMushroom){mushrooms.HP -= damage; animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshApples){apple.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshMangos){mango.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshCorns){corn.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshRocs){rocks.HP -= damage; animator.SetTrigger("Rock");StartCoroutine(InAnimation());}
-         if(puntshWatermelon){watrmelon.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshPumpkins){pumpkin.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
-         if(puntshCarrots){carrots.HP -= damage;animator.SetTrigger("Plants");StartCoroutine(InAnimation());}
+         if(puntshMushroom){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(mushrooms,"Plants"));}
+         if(puntshApples){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(apple,"Plants"));}
+         if(puntshMangos){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(mango,"Plants"));}
+         if(puntshCorns){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(corn,"Plants"));}
+         if(puntshRocs){animator.SetTrigger("Rock");
+            StartCoroutine(InAnimation(rocks,"Rock"));}
+         if(puntshWatermelon){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(watrmelon,"Plants"));}
+         if(puntshPumpkins){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(pumpkin,"Plants"));}
+         if(puntshCarrots){animator.SetTrigger("Plants");
+            StartCoroutine(InAnimation(carrots,"Plants"));}
       }
    }
 
-   IEnumerator InAnimation()
+   IEnumerator InAnimation(MonoBehaviour scobj, string nameanim)
    {
       characterMovement.canMove = false;
-      yield return new WaitForSeconds(2f);
+      float timeanim = 0;
+      switch (nameanim)
+      {
+         case "Tree":
+            timeanim = 2.4f;
+            break;
+         case "Rock":
+            timeanim = 3.20f;
+            break;
+         case "Plants":
+            timeanim = 6f;
+            break;
+      }
+      yield return new WaitForSeconds(timeanim);
+      switch (scobj)
+      {
+         case Trees:
+            trees.HP -= damage;
+            break;
+         case Mushrooms:
+            mushrooms.HP -= damage;
+            break;
+         case Rocs:
+            rocks.HP -= damage;
+            break;
+         case Carrots:
+            carrots.HP -= damage;
+            break;
+         case Pumpkin:
+            pumpkin.HP -= damage;
+            break;
+         case Mango:
+            mango.HP -= damage;
+            break;
+         case Corn:
+            corn.HP -= damage;
+            break;
+         case Watrmelon:
+            watrmelon.HP -= damage;
+            break;
+         case Apple:
+            apple.HP -= damage;
+            break;
+         
+      }
       characterMovement.canMove = true;
    }
 }
