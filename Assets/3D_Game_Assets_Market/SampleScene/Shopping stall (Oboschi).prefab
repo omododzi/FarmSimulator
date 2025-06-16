@@ -2554,7 +2554,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trade_Box_Whole_Prefap
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2536220809410261743, guid: b1f2f8afe8e03914e9a82497b218b366, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2250781870395050301, guid: b1f2f8afe8e03914e9a82497b218b366, type: 3}
@@ -2811,7 +2812,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4573373116633297394, guid: d691a5b52a84d8a44a9d5018feebf938, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7370765959704048035, guid: d691a5b52a84d8a44a9d5018feebf938, type: 3}

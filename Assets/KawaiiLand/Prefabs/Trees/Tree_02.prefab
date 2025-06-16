@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1558332376719210076}
   - component: {fileID: -3249018694736181069}
   - component: {fileID: 6063637291632303344}
-  - component: {fileID: -3987611068576773631}
+  - component: {fileID: 6312282316583504192}
   m_Layer: 0
   m_Name: Tree_02
   m_TagString: Tree
@@ -132,7 +132,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8, y: 1.8, z: 1.8}
   m_Center: {x: 0, y: 0.8996745, z: 0}
---- !u!114 &-3987611068576773631
+--- !u!114 &6312282316583504192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,11 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054039651435222921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebfc088dab167d42928fd2fcbe1b96d, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 4
-  minDrop: 1
-  HP: 5
-  respawnTime: 30
+  respawnTime: 1
+  resourses: 1
+  HP: 1
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: 6063637291632303344}
+  meshRenderers:
+  - {fileID: 1558332376719210076}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

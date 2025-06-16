@@ -2,16 +2,9 @@ using UnityEngine;
 
 public class IslandOpen : MonoBehaviour
 {
+   public Enventory Inventory;
    [Header("Ресурсы для открытия острова")]
-   public int treesWont;
-   public int rocksWont;
-   public int mushroomsWont;
-   public int carrotsWont;
-   public int watermalonnWont;
-   public int applesWont;
-   public int pumpkinsWont;
-   public int mangoWont;
-   public int cornsWont;
+   [SerializeField] int moneyWont;
    
    public bool isopen = false;
    
@@ -19,6 +12,7 @@ public class IslandOpen : MonoBehaviour
 
    void Start()
    {
+      Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Enventory>();
       if (!isopen)
       {
          for (int i = 0; i < transform.childCount; i++)
@@ -40,18 +34,11 @@ public class IslandOpen : MonoBehaviour
       }
    }
 
-   public void CheckResourses(int trees,int rocs,int mushrooms,int carrots,int watermalonn,int apples,int pumpkins,int mango,int corns)
+   public void CheckResourses()
    {
-      if (trees >= treesWont &&
-          rocs >= rocksWont &&
-          mushrooms >= mushroomsWont &&
-          carrots >= carrotsWont &&
-          watermalonn >= watermalonnWont &&
-          apples >= applesWont &&
-          pumpkins >= pumpkinsWont &&
-          mango >= mangoWont &&
-          corns >= cornsWont)
+      if (Inventory.Money >= moneyWont)
       {
+         Inventory.Money -= moneyWont;
          isopen = true;
          for (int i = 0; i < transform.childCount; i++)
          {

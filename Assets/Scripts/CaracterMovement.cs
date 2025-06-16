@@ -14,8 +14,17 @@ public class CharacterMovement : MonoBehaviour
     public float groundedGravity = -0.5f;
     
     [Header("Animation Settings")]
-    public float walkAnimationThreshold = 0.1f; // Порог скорости для анимации ходьбы
-    public float animationTransitionSpeed = 5f; // Скорость перехода между анимациями
+    public float walkAnimationThreshold = 0.1f;
+    public float animationTransitionSpeed = 5f;
+    
+    [Header("Input Settings")]
+    public string horizontalAxis = "Horizontal";
+    public string verticalAxis = "Vertical";
+    public KeyCode runKey = KeyCode.LeftShift;
+    
+    [Header("Mobile Joystick")]
+    public Joystic joystick; // Ссылка на компонент джойстика
+    public bool useMobileInput = false; // Переключатель между мобильным и ПК управлением
     
     private Vector3 velocity;
     private CharacterController controller;
@@ -23,17 +32,19 @@ public class CharacterMovement : MonoBehaviour
     public Animator animator;
     private float currentSpeed;
     
-    [Header("Input Settings")]
-    public string horizontalAxis = "Horizontal";
-    public string verticalAxis = "Vertical";
-    public KeyCode runKey = KeyCode.LeftShift;
-    
     public bool canMove = true;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
+        
+        // Автоматически определяем платформу (можно переопределить в инспекторе)
+#if UNITY_ANDROID || UNITY_IOS
+        useMobileInput = true;
+#else
+        useMobileInput = false;
+#endif
     }
 
     void Update()
@@ -50,14 +61,23 @@ public class CharacterMovement : MonoBehaviour
         
         ApplyGravity();
         UpdateAnimations();
-        
     }
 
     void HandleMovement()
     {
-        // Получаем ввод
-        float horizontalInput = Input.GetAxis(horizontalAxis);
-        float verticalInput = Input.GetAxis(verticalAxis);
+        float horizontalInput, verticalInput;
+        
+        // Получаем ввод в зависимости от платформы
+        if (useMobileInput && joystick != null)
+        {
+            horizontalInput = joystick.Horizontal;
+            verticalInput = joystick.Vertical;
+        }
+        else
+        {
+            horizontalInput = Input.GetAxis(horizontalAxis);
+            verticalInput = Input.GetAxis(verticalAxis);
+        }
         
         // Создаем вектор направления ввода
         Vector2 inputDirection = new Vector2(horizontalInput, verticalInput);
@@ -75,7 +95,14 @@ public class CharacterMovement : MonoBehaviour
         Vector3 moveDirection = cameraForward * inputDirection.y + cameraRight * inputDirection.x;
         
         // Определяем скорость движения
-        bool isRunning = Input.GetKey(runKey) && inputMagnitude > 0.1f;
+        bool isRunning = false;
+        
+        // Бег только для ПК управления (на мобильных можно добавить отдельную кнопку)
+        if (!useMobileInput)
+        {
+            isRunning = Input.GetKey(runKey) && inputMagnitude > 0.1f;
+        }
+        
         float targetSpeed = isRunning ? runSpeed : moveSpeed;
         targetSpeed *= inputMagnitude;
         
@@ -123,17 +150,21 @@ public class CharacterMovement : MonoBehaviour
         // Определяем состояние движения
         bool isMoving = Mathf.Abs(velocity.x) > walkAnimationThreshold || 
                        Mathf.Abs(velocity.z) > walkAnimationThreshold;
-        bool isRunning = Input.GetKey(runKey) && isMoving;
+        bool isRunning = false;
+        
+        // Бег только для ПК управления
+        if (!useMobileInput)
+        {
+            isRunning = Input.GetKey(runKey) && isMoving;
+        }
         
         // Устанавливаем значение Blend Tree
-        float targetBlendValue = isRunning ? 1f : 0f;
+        float targetBlendValue = isRunning ? 1f : (isMoving ? 0.5f : 0f);
         float currentBlendValue = animator.GetFloat("Blend");
         float newBlendValue = Mathf.Lerp(currentBlendValue, targetBlendValue, 
             animationTransitionSpeed * Time.deltaTime);
         
         animator.SetFloat("Blend", newBlendValue);
-        
-        // Дополнительный параметр для полной остановки (опционально)
         animator.SetBool("iswalk", isMoving);
     }
 }

@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
     private bool targetFound = false;
     private float currentX = 0f;
     private float currentY = 0f;
+    public bool canMove = true;
 
     void Start()
     {
@@ -63,7 +64,7 @@ public class CameraController : MonoBehaviour
 
     private void HandleCameraRotation()
     {
-        if (Input.GetMouseButton(0)) // ПКМ зажата
+        if (Input.GetMouseButton(0)&& canMove) // ПКМ зажата
         {
             currentX += Input.GetAxis("Mouse X") * mouseSensitivity;
             currentY -= Input.GetAxis("Mouse Y") * mouseSensitivity;
