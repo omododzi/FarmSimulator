@@ -7,9 +7,10 @@ public class CaracterTrigger : MonoBehaviour
 {
    private CharacterMovement characterMovement;
    public Animator animator;
+   private Resours resours;
    public List<string> plants = new List<string>()
    {
-      "Mushroom","Apples","Mango","Corns","Watermelon","Pumpkin","Carrot"
+      "Mushroom","Apple","Mango","Corns","Watermelon","Pumpkin","Carrot","Corn"
    };
    private bool stayInPlant = false;
    private bool stayInTree = false;
@@ -29,18 +30,29 @@ public class CaracterTrigger : MonoBehaviour
       }
       if (plants.Contains(other.gameObject.tag))
       {
+        
+         resours = other.GetComponent<Resours>();
+         stayInPlant = true;
+         resources = other.gameObject.GetComponent<Resours>();
+      }
+
+      if (other.gameObject.CompareTag("Corn")||other.gameObject.CompareTag("Apple")||other.gameObject.CompareTag("Carrot"))
+      {
+         resours = other.GetComponent<Resours>();
          stayInPlant = true;
          resources = other.gameObject.GetComponent<Resours>();
       }
 
       if (other.CompareTag("Tree") )
       {
+         resours = other.GetComponent<Resours>();
          stayInTree = true;
          resources = other.gameObject.GetComponent<Resours>();
       }
 
       if (other.CompareTag("Rock"))
       {
+         resours = other.GetComponent<Resours>();
          stayInRock = true;
          resources = other.gameObject.GetComponent<Resours>();
       }
@@ -49,6 +61,10 @@ public class CaracterTrigger : MonoBehaviour
    private void OnTriggerExit(Collider other)
    {
       if (plants.Contains(other.gameObject.tag))
+      {
+         stayInPlant = false;
+      }
+      if (other.gameObject.CompareTag("Corn")||other.gameObject.CompareTag("Apple")||other.gameObject.CompareTag("Carrot"))
       {
          stayInPlant = false;
       }
@@ -68,15 +84,16 @@ public class CaracterTrigger : MonoBehaviour
    {
       if (Input.GetKeyDown(KeyCode.E)&& characterMovement.canMove)
       {
-         if (stayInPlant)
+         
+         if (stayInPlant && !resours.destroyed)
          {
             animator.SetTrigger("Plants");
             StartCoroutine(InAnimation("Plants"));
-         }else if (stayInTree)
+         }else if (stayInTree&& !resours.destroyed)
          {
             animator.SetTrigger("Tree");
             StartCoroutine(InAnimation("Tree"));
-         }else if (stayInRock)
+         }else if (stayInRock&& !resours.destroyed)
          {
             animator.SetTrigger("Rock");
             StartCoroutine(InAnimation("Rock"));
@@ -88,15 +105,15 @@ public class CaracterTrigger : MonoBehaviour
    {
       if (characterMovement.canMove)
       {
-         if (stayInPlant)
+         if (stayInPlant&& !resours.destroyed)
          {
             animator.SetTrigger("Plants");
             StartCoroutine(InAnimation("Plants"));
-         }else if (stayInTree)
+         }else if (stayInTree&& !resours.destroyed)
          {
             animator.SetTrigger("Tree");
             StartCoroutine(InAnimation("Tree"));
-         }else if (stayInRock)
+         }else if (stayInRock&& !resours.destroyed)
          {
             animator.SetTrigger("Rock");
             StartCoroutine(InAnimation("Rock"));
@@ -107,6 +124,7 @@ public class CaracterTrigger : MonoBehaviour
 
    IEnumerator InAnimation(string nameanim)
    {
+      animator.SetBool("iswalk",false);
       characterMovement.canMove = false;
       float timeanim = 0;
       switch (nameanim)
@@ -118,7 +136,7 @@ public class CaracterTrigger : MonoBehaviour
             timeanim = 3.20f;
             break;
          case "Plants":
-            timeanim = 7f;
+            timeanim = 6.5f;
             break;
       }
       yield return new WaitForSeconds(timeanim);

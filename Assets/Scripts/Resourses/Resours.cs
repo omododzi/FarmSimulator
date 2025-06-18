@@ -10,7 +10,7 @@ public class Resours : MonoBehaviour
     [SerializeField] float HP = 1;
     [SerializeField] private float basehp;
     
-    [Header("State")][SerializeField] bool destroyed = false;
+    [Header("State")]public bool destroyed = false;
     
     [Header("Settings")]
     [SerializeField] BoxCollider[] boxColliders;
@@ -37,18 +37,13 @@ public class Resours : MonoBehaviour
     {
         SetOffoll();
         yield return new WaitForSeconds(respawnTime);
+        HP = basehp;
         SetOnOll();
     }
 
     void SetOffoll()
     {
-        if (boxColliders != null)
-        {
-            for (int i = 0; i < boxColliders.Length; i++)
-            {
-                boxColliders[i].enabled = false;
-            }
-        }
+     
 
         if (meshRenderers != null)
         {
@@ -74,13 +69,7 @@ public class Resours : MonoBehaviour
 
     void SetOnOll()
     {
-        if (boxColliders != null)
-        {
-            for (int i = 0; i < boxColliders.Length; i++)
-            {
-                boxColliders[i].enabled = true;
-            }
-        }
+       
 
         if (meshRenderers != null)
         {
