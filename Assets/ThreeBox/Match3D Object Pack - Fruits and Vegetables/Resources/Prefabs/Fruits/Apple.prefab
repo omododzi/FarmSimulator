@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 812188835142777443}
   - component: {fileID: 3216007982960201385}
   - component: {fileID: 9088936243273337580}
-  - component: {fileID: 3368261446750640103}
+  - component: {fileID: 5579643246689814105}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Apple
@@ -109,7 +109,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.9019292
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3368261446750640103
+--- !u!114 &5579643246689814105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4008610799542497148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e08c961e5b14fc4089d1f15cbf445d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
+  respawnTime: 15
+  resourses: 1
   HP: 1
-  respawnTime: 25
+  basehp: 0
+  destroyed: 0
+  boxColliders: []
+  meshRenderers:
+  - {fileID: 3216007982960201385}
+  DestroyedObject: {fileID: 0}
+  sphereCollider:
+  - {fileID: 9088936243273337580}

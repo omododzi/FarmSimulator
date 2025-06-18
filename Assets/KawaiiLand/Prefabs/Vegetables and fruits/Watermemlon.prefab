@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 852127113345650959}
   - component: {fileID: 3186202529149134277}
   - component: {fileID: 4166058609070631349}
-  - component: {fileID: 3556188868096480184}
+  - component: {fileID: 4809300041918469234}
   m_Layer: 0
   m_Name: Watermemlon
   m_TagString: Watermelon
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.64735544, y: 0.647355, z: 0.64735556}
   m_Center: {x: 0, y: -0.00000014901161, z: -0.000000029802322}
---- !u!114 &3556188868096480184
+--- !u!114 &4809300041918469234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3978743498136159248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22aa3dacce4a695488ccdf52fd14e671, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
+  respawnTime: 30
+  resourses: 1
   HP: 1
-  respawnTime: 0
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: 4166058609070631349}
+  meshRenderers:
+  - {fileID: 3186202529149134277}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

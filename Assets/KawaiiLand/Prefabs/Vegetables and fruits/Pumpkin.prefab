@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7506270073061468767}
   - component: {fileID: 5750911548363742869}
   - component: {fileID: 8952837413535824631}
-  - component: {fileID: 2376570454963601913}
+  - component: {fileID: 4352249477027431164}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Pumpkin
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6282313, y: 0.53764737, z: 0.6282313}
   m_Center: {x: -0.000000014901161, y: 0.25112057, z: 0.000000044703484}
---- !u!114 &2376570454963601913
+--- !u!114 &4352249477027431164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6111292220747693888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df50343dc46f3d745849c2d43ad117ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
+  respawnTime: 40
+  resourses: 1
   HP: 1
-  respawnTime: 30
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: 8952837413535824631}
+  meshRenderers:
+  - {fileID: 5750911548363742869}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

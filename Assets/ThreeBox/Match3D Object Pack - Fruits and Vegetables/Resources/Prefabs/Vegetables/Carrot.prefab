@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7064514491660987492}
   - component: {fileID: 6171595142731031489}
   - component: {fileID: 8232894976947820299}
-  - component: {fileID: 5589330599959835259}
+  - component: {fileID: 5850598863642425295}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Carrot
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5589330599959835259
+--- !u!114 &5850598863642425295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,11 +96,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7584591928906036958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06203cb8a212ce743ae88ea3ca9f2dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
+  respawnTime: 10
+  resourses: 1
   HP: 1
-  respawnTime: 15
+  basehp: 0
+  destroyed: 0
+  boxColliders: []
+  meshRenderers:
+  - {fileID: 8232894976947820299}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

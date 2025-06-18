@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4676674208664161074}
   - component: {fileID: 4546760995271831611}
   - component: {fileID: -2473012540289293036}
-  - component: {fileID: -3247416970709324153}
+  - component: {fileID: 3638844784298065153}
   m_Layer: 0
   m_Name: Mushroom_02
   m_TagString: Mushroom
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35042393, y: 0.32857502, z: 0.27375972}
   m_Center: {x: 0.010818578, y: 0.15950325, z: 0.0066279694}
---- !u!114 &-3247416970709324153
+--- !u!114 &3638844784298065153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2899325175302079452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b705af95588329d489e4cd3f8c95425e, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 3
-  minDrop: 1
+  respawnTime: 12
+  resourses: 2
   HP: 1
-  respawnTime: 10
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: -2473012540289293036}
+  meshRenderers:
+  - {fileID: 4546760995271831611}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

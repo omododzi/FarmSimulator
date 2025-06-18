@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8236448792564352255}
   - component: {fileID: 1602143180116482069}
   - component: {fileID: -2643201829668466527}
-  - component: {fileID: 2488996953488683639}
+  - component: {fileID: 6617818464429902641}
   m_Layer: 0
   m_Name: Rock_04
   m_TagString: Rock
@@ -132,7 +132,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.24487978, y: 0.15212038, z: 0.13197574}
   m_Center: {x: -0.00053410605, y: -0.0002713129, z: -0.007919796}
---- !u!114 &2488996953488683639
+--- !u!114 &6617818464429902641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,11 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7587794588661835050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c005887efef0fc94d81f5dd952cba7a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 0
-  minDrop: 0
+  respawnTime: 20
+  resourses: 1
   HP: 1
-  respawnTime: 0
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: -2643201829668466527}
+  meshRenderers:
+  - {fileID: 8236448792564352255}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []

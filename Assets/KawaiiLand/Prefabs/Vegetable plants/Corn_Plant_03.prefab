@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5373444040127310578}
   - component: {fileID: 4207663004911161430}
   - component: {fileID: 1994919146590374682}
-  - component: {fileID: 5217520297629458562}
+  - component: {fileID: 3472416607534903572}
   m_Layer: 0
   m_Name: Corn_Plant_03
   m_TagString: Corn
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5459628717149887370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.077, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5459628717149887370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.44693625, y: 0.92658114, z: 0.3026383}
   m_Center: {x: 0.008405544, y: 0.45798284, z: 0.015859693}
---- !u!114 &5217520297629458562
+--- !u!114 &3472416607534903572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,19 +122,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5459628717149887370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55ee6c7f052e154096c9b75beb0ae78, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 419694781136596043}
-  maxDrop: 4
-  minDrop: 1
+  respawnTime: 60
+  resourses: 3
   HP: 1
-  respawnTime: 40
-  isopen: 1
-  children:
-  - {fileID: 8665126591066623925}
-  - {fileID: 766197691020228288}
-  - {fileID: 495585384379892662}
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: 1994919146590374682}
+  meshRenderers:
+  - {fileID: 4207663004911161430}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []
 --- !u!1 &7390229114643747964
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,11 +455,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c934d62f699ea4393afd34af8d271f, type: 3}
---- !u!1 &419694781136596043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6931439809114832093, guid: 20c934d62f699ea4393afd34af8d271f, type: 3}
-  m_PrefabInstance: {fileID: 7341542381955649686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7308890448521756504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 39407345894387662, guid: 20c934d62f699ea4393afd34af8d271f, type: 3}

@@ -4795,14 +4795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943fbb64ea16ae94ba5c803ad92a1c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyed: 0
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
-  HP: 5
-  basehp: 0
-  respawnTime: 20
-  player: {fileID: 0}
 --- !u!1001 &224726189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7656,6 +7648,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 162776164}
     m_Modifications:
+    - target: {fileID: 3669966979390581456, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5624399121063464825, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.929
@@ -8190,6 +8186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 162776164}
     m_Modifications:
+    - target: {fileID: 3669966979390581456, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5624399121063464825, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.911
@@ -11481,6 +11481,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 162776164}
     m_Modifications:
+    - target: {fileID: 4352249477027431164, guid: cebf93603c8b57949bceeebbbb1286f4, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6111292220747693888, guid: cebf93603c8b57949bceeebbbb1286f4, type: 3}
       propertyPath: m_Name
       value: Pumpkin (8)
@@ -27451,6 +27455,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 162776164}
     m_Modifications:
+    - target: {fileID: 3669966979390581456, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5624399121063464825, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.91799927
@@ -28357,6 +28365,10 @@ PrefabInstance:
     - target: {fileID: 4358506479544524458, guid: 4f393b93a0df5194b9f425cadda7ed51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 34.227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809300041918469234, guid: 4f393b93a0df5194b9f425cadda7ed51, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3556188868096480184, guid: 4f393b93a0df5194b9f425cadda7ed51, type: 3}
@@ -30776,14 +30788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943fbb64ea16ae94ba5c803ad92a1c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyed: 0
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
-  HP: 5
-  basehp: 0
-  respawnTime: 20
-  player: {fileID: 0}
 --- !u!1001 &1316743684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37812,14 +37816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b705af95588329d489e4cd3f8c95425e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyed: 0
-  destroyedprefab: {fileID: 0}
-  maxDrop: 0
-  minDrop: 0
-  HP: 1
-  respawnTime: 0
-  player: {fileID: 0}
-  basehp: 0
 --- !u!1001 &1648244303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44025,6 +44021,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 162776164}
     m_Modifications:
+    - target: {fileID: 3669966979390581456, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
+      propertyPath: 'boxColliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5624399121063464825, guid: 950703cb1a620c54290f83a4764e7759, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9282398
@@ -49526,6 +49526,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 265449715}
     m_Modifications:
+    - target: {fileID: 3472416607534903572, guid: 93476962347969940818ca1d762224c8, type: 3}
+      propertyPath: resourses
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5459628717149887370, guid: 93476962347969940818ca1d762224c8, type: 3}
       propertyPath: m_Name
       value: Corn_Plant_03 (15)

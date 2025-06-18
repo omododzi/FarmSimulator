@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4246055616765958855}
   - component: {fileID: 2092469995349208589}
   - component: {fileID: 1239434468260280174}
-  - component: {fileID: 5662802683383479570}
+  - component: {fileID: 201609104001584830}
   m_Layer: 0
   m_Name: Mango
   m_TagString: Mango
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.31008774, y: 0.45207888, z: 0.30637607}
   m_Center: {x: 0.0049004033, y: -0.1830692, z: 0}
---- !u!114 &5662802683383479570
+--- !u!114 &201609104001584830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 434894437825138648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943fbb64ea16ae94ba5c803ad92a1c92, type: 3}
+  m_Script: {fileID: 11500000, guid: 97c52cd29c26ffe4c99c0b6d0fe61746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedprefab: {fileID: 0}
-  maxDrop: 2
-  minDrop: 1
+  respawnTime: 15
+  resourses: 1
   HP: 1
-  respawnTime: 20
+  basehp: 0
+  destroyed: 0
+  boxColliders:
+  - {fileID: 1239434468260280174}
+  meshRenderers:
+  - {fileID: 2092469995349208589}
+  DestroyedObject: {fileID: 0}
+  sphereCollider: []
