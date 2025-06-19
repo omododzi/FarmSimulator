@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 public class Enventory: MonoBehaviour
 {
-    public static Enventory instance;
+    public static Enventory Instance;
     
     public int treesHave;
     public int rocksHave;
@@ -28,8 +28,11 @@ public class Enventory: MonoBehaviour
     public TMP_Text mangosText;
     public TMP_Text cornsText;
     public TMP_Text MoneyText;
-    
 
+    void Awake()
+    {
+        Instance = this;
+    }
     private void LateUpdate()
     {
         treesText.text = treesHave.ToString();
