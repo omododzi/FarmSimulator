@@ -1,0 +1,24 @@
+{
+    "idSave": 3244,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "moneyP": 12,
+    "treesHave": 0,
+    "rocksHave": 0,
+    "mushroomsHave": 0,
+    "carrotsHave": 0,
+    "watermalonnHave": 0,
+    "applesHave": 0,
+    "pumpkinsHave": 0,
+    "mangosHave": 0,
+    "cornsHave": 0,
+    "openedLevels": []
+}

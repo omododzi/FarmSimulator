@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using TMPro;
+using YG;
+
 public class Enventory: MonoBehaviour
 {
     public static Enventory Instance;
@@ -32,6 +34,16 @@ public class Enventory: MonoBehaviour
     void Awake()
     {
         Instance = this;
+        treesHave = YandexGame.savesData.treesHave;
+        rocksHave = YandexGame.savesData.rocksHave;
+        mushroomsHave = YandexGame.savesData.mushroomsHave;
+        carrotsHave = YandexGame.savesData.carrotsHave;
+        watermalonnHave = YandexGame.savesData.watermalonnHave;
+        applesHave = YandexGame.savesData.applesHave;
+        pumpkinsHave = YandexGame.savesData.pumpkinsHave;
+        mangosHave = YandexGame.savesData.mangosHave;
+        cornsHave = YandexGame.savesData.cornsHave;
+        Money = YandexGame.savesData.moneyP;
     }
     private void LateUpdate()
     {
@@ -45,5 +57,22 @@ public class Enventory: MonoBehaviour
         mangosText.text = mangosHave.ToString();
         cornsText.text = cornsHave.ToString();
         MoneyText.text = Money.ToString();
+        
+        SaveRes();
+    }
+
+    private void SaveRes()
+    {
+      YandexGame.savesData.treesHave = treesHave;
+      YandexGame.savesData.rocksHave = rocksHave;
+      YandexGame.savesData.mushroomsHave = mushroomsHave;
+      YandexGame.savesData.carrotsHave = carrotsHave;
+      YandexGame.savesData.watermalonnHave = watermalonnHave;
+      YandexGame.savesData.applesHave = applesHave;
+      YandexGame.savesData.pumpkinsHave = pumpkinsHave;
+      YandexGame.savesData.mangosHave = mangosHave;
+      YandexGame.savesData.cornsHave = cornsHave;
+      YandexGame.savesData.moneyP = Money;
+      YandexGame.SaveProgress();
     }
 }

@@ -8,6 +8,9 @@ public class CaracterTrigger : MonoBehaviour
    private CharacterMovement characterMovement;
    public Animator animator;
    private Resours resours;
+   public GameObject magazine;
+   public GameObject AXE;
+   public GameObject PICKAXE;
    public List<string> plants = new List<string>()
    {
       "Mushroom","Apple","Mango","Corns","Watermelon","Pumpkin","Carrot","Corn"
@@ -19,6 +22,7 @@ public class CaracterTrigger : MonoBehaviour
    [SerializeField] Resours resources;
    void Start()
    {
+      magazine.SetActive(false);
       characterMovement = GetComponent<CharacterMovement>();
    }
    private void OnTriggerEnter(Collider other)
@@ -41,6 +45,7 @@ public class CaracterTrigger : MonoBehaviour
          resours = other.GetComponent<Resours>();
          stayInPlant = true;
          resources = other.gameObject.GetComponent<Resours>();
+         
       }
 
       if (other.CompareTag("Tree") )
@@ -48,6 +53,7 @@ public class CaracterTrigger : MonoBehaviour
          resours = other.GetComponent<Resours>();
          stayInTree = true;
          resources = other.gameObject.GetComponent<Resours>();
+         
       }
 
       if (other.CompareTag("Rock"))
@@ -55,6 +61,14 @@ public class CaracterTrigger : MonoBehaviour
          resours = other.GetComponent<Resours>();
          stayInRock = true;
          resources = other.gameObject.GetComponent<Resours>();
+         AXE.SetActive(false);
+         PICKAXE.SetActive(true);
+      }
+
+      if (other.CompareTag("Magazine"))
+      {
+         magazine.SetActive(true);
+         
       }
    }
 
@@ -78,6 +92,10 @@ public class CaracterTrigger : MonoBehaviour
       {
          stayInRock = false;
       }
+      if (other.CompareTag("Magazine"))
+      {
+         magazine.SetActive(false);
+      }
    }
 
    private void FixedUpdate()
@@ -89,14 +107,20 @@ public class CaracterTrigger : MonoBehaviour
          {
             animator.SetTrigger("Plants");
             StartCoroutine(InAnimation("Plants"));
+            PICKAXE.SetActive(false);
+            AXE.SetActive(false);
          }else if (stayInTree&& !resours.destroyed)
          {
             animator.SetTrigger("Tree");
             StartCoroutine(InAnimation("Tree"));
+            PICKAXE.SetActive(false);
+            AXE.SetActive(true);
          }else if (stayInRock&& !resours.destroyed)
          {
             animator.SetTrigger("Rock");
             StartCoroutine(InAnimation("Rock"));
+            PICKAXE.SetActive(true);
+            AXE.SetActive(false);
          }
       }
    }
@@ -109,14 +133,20 @@ public class CaracterTrigger : MonoBehaviour
          {
             animator.SetTrigger("Plants");
             StartCoroutine(InAnimation("Plants"));
+            PICKAXE.SetActive(false);
+            AXE.SetActive(false);
          }else if (stayInTree&& !resours.destroyed)
          {
             animator.SetTrigger("Tree");
             StartCoroutine(InAnimation("Tree"));
+            PICKAXE.SetActive(false);
+            AXE.SetActive(true);
          }else if (stayInRock&& !resours.destroyed)
          {
             animator.SetTrigger("Rock");
             StartCoroutine(InAnimation("Rock"));
+            PICKAXE.SetActive(true);
+            AXE.SetActive(false);
          }
       }
    }
