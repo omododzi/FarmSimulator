@@ -5,7 +5,7 @@ public class IslandOpen : MonoBehaviour
 {
    public Enventory Inventory;
    [Header("Ресурсы для открытия острова")]
-   [SerializeField] int moneyWont;
+   [SerializeField] public int moneyWont;
    
    public bool isopen = false;
    

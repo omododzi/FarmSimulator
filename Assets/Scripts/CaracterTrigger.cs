@@ -2,15 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CaracterTrigger : MonoBehaviour
 {
    private CharacterMovement characterMovement;
    public Animator animator;
+   public IslandOpen islandOpen;
    private Resours resours;
    public GameObject magazine;
    public GameObject AXE;
    public GameObject PICKAXE;
+   public GameObject Coin;
+   public TMP_Text text;
+   public bool trigisl = false; 
    public List<string> plants = new List<string>()
    {
       "Mushroom","Apple","Mango","Corns","Watermelon","Pumpkin","Carrot","Corn"
@@ -29,8 +33,9 @@ public class CaracterTrigger : MonoBehaviour
    {
       if (other.gameObject.CompareTag("Island"))
       {
-         IslandOpen open = other.gameObject.GetComponent<IslandOpen>();
-         open.CheckResourses();
+         islandOpen = other.gameObject.GetComponent<IslandOpen>();
+         trigisl = true;
+         islandOpen.CheckResourses();
       }
       if (plants.Contains(other.gameObject.tag))
       {
@@ -74,6 +79,10 @@ public class CaracterTrigger : MonoBehaviour
 
    private void OnTriggerExit(Collider other)
    {
+      if (other.gameObject.CompareTag("Island"))
+      {
+         trigisl = false;
+      }
       if (plants.Contains(other.gameObject.tag))
       {
          stayInPlant = false;
@@ -100,9 +109,19 @@ public class CaracterTrigger : MonoBehaviour
 
    private void FixedUpdate()
    {
+      if (trigisl && islandOpen != null)
+      {
+         Coin.SetActive(true);
+         text.enabled = true;
+         text.text = islandOpen.moneyWont.ToString();
+      }
+      else
+      {
+         Coin.SetActive(false);
+         text.enabled = false;
+      }
       if (Input.GetKeyDown(KeyCode.E)&& characterMovement.canMove)
       {
-         
          if (stayInPlant && !resours.destroyed)
          {
             animator.SetTrigger("Plants");
